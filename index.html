@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3efe8" />
+    <title>RÊVER — Objects of feeling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="progress"><span></span></div>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Rêver home">RÊVER<span>®</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#collection">Collection</a>
+        <a href="#story">Our story</a>
+        <a href="#journal">Journal</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" aria-label="Search"><span class="search-icon"></span></button>
+        <button class="bag-button" aria-label="Open bag">Bag <b>0</b></button>
+        <button class="menu-button" aria-label="Open menu"><i></i><i></i></button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Fine objects for everyday ritual <span>— 01/04</span></p>
+          <h1 id="hero-title">Made to<br /><em>linger.</em></h1>
+          <p class="hero-intro">Jewellery with a point of view. Quietly distinctive, made in small runs to become part of your story.</p>
+          <a class="text-link" href="#collection">Explore the collection <span>↗</span></a>
+        </div>
+        <div class="hero-art">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-image-wrap">
+            <img src="assets/hero-ring.png" alt="Sculptural gold ring with a blue sapphire" />
+          </div>
+          <p class="image-note">The No. 07 ring<br /><span>18k gold · lab sapphire</span></p>
+          <span class="scroll-cue">Scroll to wander <b>↓</b></span>
+        </div>
+      </section>
+
+      <section class="statement section-pad" id="story">
+        <p class="eyebrow">A slower kind of luxury</p>
+        <h2>Beauty is not<br /><em>in a hurry.</em></h2>
+        <div class="statement-bottom">
+          <p>We believe the most meaningful pieces are the ones you forget you are wearing — until someone asks.</p>
+          <span class="chapter">02 / 04</span>
+        </div>
+      </section>
+
+      <section class="collection section-pad" id="collection" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">The edit / 2024</p><h2 id="collection-title">Small gestures,<br /><em>solid gold.</em></h2></div>
+          <a class="text-link" href="#collection">View all <span>↗</span></a>
+        </div>
+        <div class="product-grid">
+          <article class="product-card card-tall">
+            <div class="product-image"><img src="assets/editorial-necklace.png" alt="Gold pendant necklace on silk" /><span class="product-index">01</span><button aria-label="Add Aurelia pendant to bag">+</button></div>
+            <div class="product-meta"><div><h3>Aurelia pendant</h3><p>18k recycled gold</p></div><strong>€ 280</strong></div>
+          </article>
+          <article class="product-card card-short">
+            <div class="product-image"><img src="assets/editorial-bracelet.png" alt="Sculptural gold cuff on velvet" /><span class="product-index">02</span><button aria-label="Add Forma cuff to bag">+</button></div>
+            <div class="product-meta"><div><h3>Forma cuff</h3><p>Vermeil · hand-finished</p></div><strong>€ 190</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="marquee" aria-label="Rêver values"><div class="marquee-track"><span>CONSIDERED FORM</span><i>✳</i><span>MADE TO LAST</span><i>✳</i><span>CONSIDERED FORM</span><i>✳</i><span>MADE TO LAST</span><i>✳</i></div></section>
+
+      <section class="journal section-pad" id="journal">
+        <div class="section-heading"><div><p class="eyebrow">From the journal</p><h2>Notes on<br /><em>the everyday.</em></h2></div><span class="chapter">03 / 04</span></div>
+        <div class="journal-list">
+          <a href="#journal" class="journal-item"><span>01</span><h3>On wearing one good thing</h3><b>↗</b></a>
+          <a href="#journal" class="journal-item"><span>02</span><h3>The ritual of getting ready</h3><b>↗</b></a>
+          <a href="#journal" class="journal-item"><span>03</span><h3>Why we make in small runs</h3><b>↗</b></a>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="closing-copy"><p class="eyebrow">Come a little closer</p><h2>Keep<br /><em>in touch.</em></h2><p>Occasional notes from our studio, never too often.</p><form><label class="sr-only" for="email">Your email</label><input id="email" type="email" placeholder="Your email address" /><button type="submit" aria-label="Subscribe">↗</button></form></div>
+        <div class="closing-mark">RÊVER<br /><span>OBJECTS OF FEELING</span></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>© 2024 RÊVER STUDIO</span><span>Made slowly in Lisbon</span><a href="#top">Back to top ↑</a></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
