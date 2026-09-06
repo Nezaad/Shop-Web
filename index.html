@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3efe8" />
+    <meta name="description" content="RÊVER — fine jewellery with a point of view. Small-batch pieces in recycled gold, made slowly in Lisbon." />
     <title>RÊVER — Objects of feeling</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,12 +17,13 @@
       <a class="wordmark" href="#top" aria-label="Rêver home">RÊVER<span>®</span></a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#collection">Collection</a>
-        <a href="#story">Our story</a>
+        <a href="#atelier">Atelier</a>
         <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
         <button class="icon-button" aria-label="Search"><span class="search-icon"></span></button>
-        <button class="bag-button" aria-label="Open bag">Bag <b>0</b></button>
+        <button class="bag-button" aria-label="Open bag">Bag <b id="bag-count">0</b></button>
         <button class="menu-button" aria-label="Open menu"><i></i><i></i></button>
       </div>
     </header>
@@ -29,6 +31,7 @@
       <button class="close-panel" aria-label="Close menu">×</button>
       <p class="eyebrow">Rêver studio</p>
       <a href="#collection">Collection <span>↗</span></a>
+      <a href="#atelier">Atelier <span>↗</span></a>
       <a href="#story">Our story <span>↗</span></a>
       <a href="#journal">Journal <span>↗</span></a>
       <a href="#contact">Contact <span>↗</span></a>
@@ -37,9 +40,17 @@
     <aside class="bag-panel" aria-hidden="true">
       <button class="close-panel" aria-label="Close bag">×</button>
       <p class="eyebrow">Your bag</p>
-      <h2>Nothing here<br /><em>yet.</em></h2>
-      <p>Take your time. The good things aren't going anywhere.</p>
-      <a class="text-link" href="#collection">Browse the edit <span>↗</span></a>
+      <div class="bag-state" id="bag-empty">
+        <h2>Nothing here<br /><em>yet.</em></h2>
+        <p>Take your time. The good things aren't going anywhere.</p>
+        <a class="text-link" href="#collection">Browse the edit <span>↗</span></a>
+      </div>
+      <div class="bag-state bag-state-items" id="bag-items" hidden>
+        <h2>Almost<br /><em>yours.</em></h2>
+        <ul class="bag-list" id="bag-list"></ul>
+        <div class="bag-total"><span>Total</span><strong id="bag-total">€ 0</strong></div>
+        <p class="bag-note">Shipping and taxes are settled at checkout. Every piece ships in its pouch.</p>
+      </div>
     </aside>
     <div class="search-panel" aria-hidden="true">
       <button class="close-panel" aria-label="Close search">×</button>
@@ -51,7 +62,7 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">Fine objects for everyday ritual <span>— 01/04</span></p>
+          <p class="eyebrow">Fine objects for everyday ritual <span>— 01/10</span></p>
           <h1 id="hero-title">Made to<br /><em>linger.</em></h1>
           <p class="hero-intro">Jewellery with a point of view. Quietly distinctive, made in small runs to become part of your story.</p>
           <a class="text-link" href="#collection">Explore the collection <span>↗</span></a>
@@ -72,65 +83,156 @@
         <h2>Beauty is not<br /><em>in a hurry.</em></h2>
         <div class="statement-bottom">
           <p>We believe the most meaningful pieces are the ones you forget you are wearing — until someone asks.</p>
-          <span class="chapter">02 / 04</span>
+          <span class="chapter">02 / 10</span>
         </div>
       </section>
 
       <section class="collection section-pad" id="collection" aria-labelledby="collection-title">
         <div class="section-heading">
-          <div><p class="eyebrow">The edit / 2024</p><h2 id="collection-title">Small gestures,<br /><em>solid gold.</em></h2></div>
+          <div><p class="eyebrow">The edit / 2026</p><h2 id="collection-title">Small gestures,<br /><em>solid gold.</em></h2></div>
           <a class="text-link" href="#collection">View all <span>↗</span></a>
         </div>
         <div class="product-grid">
           <article class="product-card card-tall">
-            <div class="product-image"><img src="assets/editorial-necklace.png" alt="Gold pendant necklace on silk" /><span class="product-index">01</span><button aria-label="Add Aurelia pendant to bag">+</button></div>
+            <div class="product-image"><img src="assets/editorial-necklace.png" alt="Gold pendant necklace on silk" /><span class="product-index">01</span><button aria-label="Add Aurelia pendant to bag" data-name="Aurelia pendant" data-price="280">+</button></div>
             <div class="product-meta"><div><h3>Aurelia pendant</h3><p>18k recycled gold</p></div><strong>€ 280</strong></div>
           </article>
           <article class="product-card card-short">
-            <div class="product-image"><img src="assets/editorial-bracelet.png" alt="Sculptural gold cuff on velvet" /><span class="product-index">02</span><button aria-label="Add Forma cuff to bag">+</button></div>
+            <div class="product-image"><img src="assets/editorial-bracelet.png" alt="Sculptural gold cuff on velvet" /><span class="product-index">02</span><button aria-label="Add Forma cuff to bag" data-name="Forma cuff" data-price="190">+</button></div>
             <div class="product-meta"><div><h3>Forma cuff</h3><p>Vermeil · hand-finished</p></div><strong>€ 190</strong></div>
+          </article>
+          <article class="product-card card-tall">
+            <div class="product-image"><img src="assets/hero-ring.png" alt="Sculptural gold ring with a blue sapphire" /><span class="product-index">03</span><button aria-label="Add No. 07 ring to bag" data-name="No. 07 ring" data-price="420">+</button></div>
+            <div class="product-meta"><div><h3>No. 07 ring</h3><p>18k gold · lab sapphire</p></div><strong>€ 420</strong></div>
+          </article>
+          <article class="product-card card-short">
+            <div class="product-image"><img src="assets/editorial-necklace.png" alt="Delicate gold chain on silk" /><span class="product-index">04</span><button aria-label="Add Lume chain to bag" data-name="Lume chain" data-price="310">+</button></div>
+            <div class="product-meta"><div><h3>Lume chain</h3><p>18k gold · 40 cm</p></div><strong>€ 310</strong></div>
           </article>
         </div>
       </section>
 
-      <section class="marquee" aria-label="Rêver values"><div class="marquee-track"><span>CONSIDERED FORM</span><i>✳</i><span>MADE TO LAST</span><i>✳</i><span>CONSIDERED FORM</span><i>✳</i><span>MADE TO LAST</span><i>✳</i></div></section>
+      <section class="marquee" aria-label="Rêver values"><div class="marquee-track"><span>CONSIDERED FORM</span><i>✳</i><span>MADE TO LAST</span><i>✳</i><span>SMALL BATCHES</span><i>✳</i><span>TRACEABLE GOLD</span><i>✳</i><span>CONSIDERED FORM</span><i>✳</i><span>MADE TO LAST</span><i>✳</i></div></section>
+
+      <section class="atelier section-pad" id="atelier" aria-labelledby="atelier-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">The atelier</p><h2 id="atelier-title">Hands, light<br /><em>&amp; quiet.</em></h2></div>
+          <span class="chapter">04 / 10</span>
+        </div>
+        <div class="atelier-body">
+          <div class="atelier-copy">
+            <p>Behind an unmarked door in Lisbon, a bench, a loupe and the morning light. Every Rêver piece passes through the same small atelier — where sketches become wax, wax becomes gold, and gold gets worn.</p>
+            <p>We keep the studio deliberately slow. Fewer pieces, more attention, and the kind of finishing you can only see from a few centimetres away.</p>
+            <a class="text-link" href="#craft">Follow the making <span>↓</span></a>
+          </div>
+          <figure class="atelier-image">
+            <div class="atelier-image-frame"><img src="assets/editorial-bracelet.png" alt="Gold cuff resting on dark velvet in the atelier" /></div>
+            <figcaption>Forma cuff, on the bench</figcaption>
+          </figure>
+          <div class="atelier-stats">
+            <div><strong>2019</strong><span>Studio founded in Lisbon</span></div>
+            <div><strong>14</strong><span>Hands touch every piece</span></div>
+            <div><strong>48</strong><span>Pieces per batch, no more</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="craft section-pad" id="craft" aria-labelledby="craft-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">Craftsmanship</p><h2 id="craft-title">Four steps,<br /><em>no shortcuts.</em></h2></div>
+          <span class="chapter">05 / 10</span>
+        </div>
+        <div class="craft-grid">
+          <article><span>01</span><h3>Sketch &amp; story</h3><p>Every design starts as a pencil study and a reason for existing. If a piece can't be worn every day, it doesn't survive the first page.</p></article>
+          <article><span>02</span><h3>Wax &amp; cast</h3><p>Wax models are carved by hand, then cast in recycled 18k gold. Small batches mean the furnace runs rarely, carefully.</p></article>
+          <article><span>03</span><h3>Set &amp; stone</h3><p>Stones are selected one at a time for character — not perfection. Lab-grown sapphires and natural diamonds, always disclosed.</p></article>
+          <article><span>04</span><h3>Finish by hand</h3><p>File, polish, check in the loupe. Pieces leave the bench with a satin softness machines can't quite imitate, and a pouch made for them.</p></article>
+        </div>
+      </section>
 
       <section class="materials section-pad" id="materials">
-        <div class="section-heading"><div><p class="eyebrow">The Rêver standard</p><h2>Good things<br /><em>take time.</em></h2></div><span class="chapter">04 / 06</span></div>
+        <div class="section-heading"><div><p class="eyebrow">The Rêver standard</p><h2>Good things<br /><em>take time.</em></h2></div><span class="chapter">06 / 10</span></div>
         <div class="material-grid">
           <article><span>01</span><h3>Traceable metals</h3><p>Every piece begins with recycled 18k gold and a clear chain of custody.</p></article>
           <article><span>02</span><h3>Small-batch craft</h3><p>Made by hands, not factories. We release fewer pieces and keep them longer.</p></article>
           <article><span>03</span><h3>Lifetime care</h3><p>Polishing, resizing and repairs — we are here for the whole life of your piece.</p></article>
+          <article><span>04</span><h3>Considered stones</h3><p>Lab-grown sapphires and natural diamonds, chosen for character and always disclosed on the tag.</p></article>
+          <article><span>05</span><h3>Vermeil for the restless</h3><p>Five microns of gold over sterling silver — the everyday version of the same shapes.</p></article>
+          <article><span>06</span><h3>Pouch &amp; archive</h3><p>Each piece ships in a waxed cotton pouch and enters the Rêver archive — where it can always come back to us.</p></article>
+        </div>
+      </section>
+
+      <section class="voices section-pad" id="voices" aria-labelledby="voices-title">
+        <div class="section-heading"><div><p class="eyebrow">Worn well</p><h2 id="voices-title">In their<br /><em>words.</em></h2></div><span class="chapter">07 / 10</span></div>
+        <div class="quote-list">
+          <blockquote>
+            <p>“The Aurelia pendant is the first piece I've owned in years that people actually ask about. It feels personal — like it was made for a life I recognise.”</p>
+            <footer><cite>Marta L.</cite><span>Porto · Aurelia pendant</span></footer>
+          </blockquote>
+          <blockquote>
+            <p>“I bought the No. 07 ring for a wedding. A year later it's the only piece I've stopped taking off. The sapphire glows in exactly the way I hoped.”</p>
+            <footer><cite>Jonas B.</cite><span>Amsterdam · No. 07 ring</span></footer>
+          </blockquote>
+          <blockquote>
+            <p>“Resizing my Forma cuff took a week, no drama, no charge. You can tell they mean it when they say they're here for the whole life of the piece.”</p>
+            <footer><cite>Priya S.</cite><span>Lisbon · Forma cuff</span></footer>
+          </blockquote>
         </div>
       </section>
 
       <section class="faq section-pad" id="faq">
         <div class="section-heading"><div><p class="eyebrow">Things worth knowing</p><h2>Ask us<br /><em>anything.</em></h2></div></div>
         <div class="faq-list">
-          <details><summary>Where is Rêver made? <span>+</span></summary><p>Each piece is designed in our Lisbon studio and finished by a small network of specialist makers in Portugal and Italy.</p></details>
-          <details><summary>How should I care for my piece? <span>+</span></summary><p>Keep your jewellery away from perfume, water and hard surfaces. Store it in its pouch when not being worn.</p></details>
+          <details open><summary>Where is Rêver made? <span>+</span></summary><p>Each piece is designed in our Lisbon studio and finished by a small network of specialist makers in Portugal and Italy.</p></details>
+          <details><summary>How should I care for my piece? <span>+</span></summary><p>Keep your jewellery away from perfume, water and hard surfaces. Store it in its pouch when not being worn, and we'll polish it for free whenever you like.</p></details>
           <details><summary>Can I send a piece back? <span>+</span></summary><p>Of course. We offer complimentary returns within 30 days. Just write to our studio and we will guide you through it.</p></details>
+          <details><summary>Do you ship internationally? <span>+</span></summary><p>Yes — tracked, insured shipping worldwide, usually within two working days from Lisbon. Duties are handled on arrival depending on your country.</p></details>
+          <details><summary>Are the pieces hypoallergenic? <span>+</span></summary><p>Gold pieces are 18k with no nickel. Vermeil pieces are sterling silver under five microns of gold — fine for most, but write to us first if you have sensitive skin.</p></details>
+          <details><summary>Do you make bespoke pieces? <span>+</span></summary><p>Occasionally, for engagements and anniversaries. The atelier takes a few commissions each season — write to hello@rever.studio with your idea.</p></details>
         </div>
       </section>
 
       <section class="journal section-pad" id="journal">
-        <div class="section-heading"><div><p class="eyebrow">From the journal</p><h2>Notes on<br /><em>the everyday.</em></h2></div><span class="chapter">03 / 04</span></div>
+        <div class="section-heading"><div><p class="eyebrow">From the journal</p><h2>Notes on<br /><em>the everyday.</em></h2></div><span class="chapter">09 / 10</span></div>
         <div class="journal-list">
           <a href="#journal" class="journal-item"><span>01</span><h3>On wearing one good thing</h3><b>↗</b></a>
           <a href="#journal" class="journal-item"><span>02</span><h3>The ritual of getting ready</h3><b>↗</b></a>
           <a href="#journal" class="journal-item"><span>03</span><h3>Why we make in small runs</h3><b>↗</b></a>
+          <a href="#journal" class="journal-item"><span>04</span><h3>A field guide to gold tones</h3><b>↗</b></a>
+          <a href="#journal" class="journal-item"><span>05</span><h3>Styling one ring, three ways</h3><b>↗</b></a>
         </div>
       </section>
 
       <section class="closing" id="contact">
-        <div class="closing-copy"><p class="eyebrow">Come a little closer</p><h2>Keep<br /><em>in touch.</em></h2><p>Occasional notes from our studio, never too often.</p><form><label class="sr-only" for="email">Your email</label><input id="email" type="email" placeholder="Your email address" /><button type="submit" aria-label="Subscribe">↗</button></form></div>
+        <div class="closing-copy">
+          <p class="eyebrow">Come a little closer <span>— 10/10</span></p>
+          <h2>Keep<br /><em>in touch.</em></h2>
+          <p>Occasional notes from our studio, never too often.</p>
+          <form novalidate>
+            <label class="sr-only" for="email">Your email</label>
+            <input id="email" type="email" placeholder="Your email address" required />
+            <button type="submit" aria-label="Subscribe">↗</button>
+          </form>
+          <p class="form-message" role="status"></p>
+          <div class="contact-grid">
+            <div><span>Visit</span><p>Rua das Flores 112<br />1200-194 Lisbon</p></div>
+            <div><span>Write</span><p><a href="mailto:hello@rever.studio">hello@rever.studio</a></p></div>
+            <div><span>Hours</span><p>Tue – Sat<br />10:00 – 18:00</p></div>
+          </div>
+        </div>
         <div class="closing-mark">RÊVER<br /><span>OBJECTS OF FEELING</span></div>
       </section>
     </main>
     <footer class="site-footer">
-      <span>© 2024 RÊVER STUDIO</span><span>Made slowly in Lisbon</span>
-      <a class="maker-credit" href="https://zero-vast.vercel.app" target="_blank" rel="noopener" aria-label="Made by Vezaad Industries">
-        <span>Made by</span><img src="assets/vezaad-industries.svg" alt="Vezaad Industries" />
+      <span>© 2026 RÊVER STUDIO</span>
+      <span>Made slowly in Lisbon</span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#collection">Collection</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="maker-credit" href="https://zero-vast.vercel.app" target="_blank" rel="noopener" aria-label="Made by Nezaad Industries">
+        <span>Made by</span><img src="assets/nezaad-industries.svg" alt="Nezaad Industries" />
       </a>
       <a href="#top">Back to top ↑</a>
     </footer>
